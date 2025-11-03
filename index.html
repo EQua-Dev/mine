@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Richard Uzor | Mobile App Developer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* === BASE === */
+      :root {
+        --primary: #00d4ff;
+        --bg: #0f0f12;
+        --card-bg: rgba(255, 255, 255, 0.05);
+        --glass-border: rgba(255, 255, 255, 0.1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: radial-gradient(circle at 20% 20%, #121217, #0a0a0c 80%);
+        color: #f5f5f5;
+        overflow-x: hidden;
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--primary);
+      }
+
+      /* === HEADER === */
+      header {
+        text-align: center;
+        padding: 3.5rem 1rem 2.5rem;
+        background: linear-gradient(145deg, #007bff55, #00d4ff33);
+        backdrop-filter: blur(6px);
+        border-bottom: 1px solid var(--glass-border);
+      }
+
+      header h1 {
+        font-size: clamp(2rem, 5vw, 2.8rem);
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(to right, #00d4ff, #00ffb3);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      header p {
+        font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+        opacity: 0.85;
+        margin-top: 0.3rem;
+        line-height: 1.5;
+      }
+
+      /* === CONTAINER === */
+      .container {
+        max-width: 1100px;
+        margin: 2rem auto 5rem;
+        padding: 0 1rem;
+      }
+
+      /* === PROJECT CARD === */
+      .project {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        background: var(--card-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        margin-bottom: 2rem;
+        padding: 1.8rem;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        cursor: pointer;
+      }
+
+      .project:hover {
+        transform: translateY(-3px) scale(1.01);
+        box-shadow: 0 0 25px rgba(0, 212, 255, 0.2);
+      }
+
+      .project img {
+        width: clamp(70px, 22vw, 100px);
+        height: clamp(70px, 22vw, 100px);
+        border-radius: 16px;
+        object-fit: cover;
+        margin-right: 1.5rem;
+        box-shadow: 0 0 12px rgba(0, 212, 255, 0.4);
+        transition: transform 0.3s ease;
+      }
+
+      .project:hover img {
+        transform: rotate(4deg) scale(1.05);
+      }
+
+      .project-content {
+        flex: 1;
+        min-width: 250px;
+        text-align: left;
+      }
+
+      .project-content h3 {
+        margin-top: 0;
+        color: var(--primary);
+        font-size: clamp(1.2rem, 3vw, 1.4rem);
+        font-weight: 600;
+      }
+
+      .project-content p {
+        font-size: clamp(0.9rem, 2.6vw, 1rem);
+        opacity: 0.9;
+        line-height: 1.6;
+      }
+
+      .links {
+        margin-top: 0.7rem;
+      }
+
+      .links a {
+        display: inline-block;
+        margin-right: 10px;
+        padding: 8px 16px;
+        border: 1px solid var(--primary);
+        border-radius: 10px;
+        color: var(--primary);
+        transition: all 0.3s ease;
+        font-size: clamp(0.85rem, 2.4vw, 0.95rem);
+      }
+
+      .links a:hover {
+        background: var(--primary);
+        color: #000;
+        transform: scale(1.05);
+      }
+
+      /* === SECTIONS === */
+      section {
+        background: var(--card-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        padding: 2rem;
+        backdrop-filter: blur(10px);
+        margin-top: 2rem;
+      }
+
+      section h2 {
+        color: var(--primary);
+        font-size: clamp(1.2rem, 3vw, 1.4rem);
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+
+      section p {
+        font-size: clamp(0.9rem, 2.5vw, 1rem);
+        line-height: 1.8;
+        text-align: center;
+      }
+
+      /* === FOOTER === */
+      footer {
+        text-align: center;
+        padding: 2rem 1rem;
+        font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+        color: #aaa;
+        border-top: 1px solid var(--glass-border);
+        backdrop-filter: blur(6px);
+      }
+
+      /* === MOBILE OPTIMIZATION === */
+      @media (max-width: 768px) {
+        .project {
+          flex-direction: column;
+          text-align: center;
+          padding: 1.5rem 1rem;
+        }
+
+        .project img {
+          margin: 0 0 1rem 0;
+        }
+
+        .project-content {
+          text-align: center;
+        }
+
+        .links a {
+          display: inline-block;
+          margin: 0.3rem 0.4rem;
+          padding: 10px 20px;
+          border-radius: 12px;
+        }
+
+        section {
+          padding: 1.5rem 1rem;
+        }
+
+        header {
+          padding: 3rem 1rem 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          font-size: 15px;
+        }
+
+        .container {
+          margin: 1rem auto 3rem;
+          padding: 0 0.8rem;
+        }
+
+        .project {
+          border-radius: 14px;
+        }
+
+        .project-content h3 {
+          font-size: 1.1rem;
+        }
+
+        .project-content p {
+          font-size: 0.9rem;
+        }
+
+        section h2 {
+          font-size: 1.1rem;
+        }
+
+        section p {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Richard Uzor</h1>
+      <p>Mobile App Developer | React Native • Flutter • Kotlin • Swift</p>
+    </header>
+
+    <div class="container">
+      <!-- Partnerd -->
+      <div class="project">
+        <img src="assets/partnerd-logo.png" alt="Partnerd Logo" />
+        <div class="project-content">
+          <h3>Partnerd</h3>
+          <p>
+            Africa’s Apex Partnership Platform helping users grow businesses,
+            projects, and ideas by connecting them with investors,
+            entrepreneurs, professionals, and creatives.
+          </p>
+          <div class="links">
+            📱
+            <a
+              href="https://play.google.com/store/apps/details?id=com.getpartnerd.app"
+              >Google Play</a
+            >
+            🍏
+            <a href="https://apps.apple.com/ng/app/partnerd/id6741252979"
+              >App Store</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- OnfleekQ Pro -->
+      <div class="project">
+        <img src="assets/onfleekq-logo.png" alt="OnfleekQ Logo" />
+        <div class="project-content">
+          <h3>OnfleekQ Pro</h3>
+          <p>
+            An on-demand beauty platform connecting users with professional
+            beauty experts, enabling real-time service booking and product
+            purchases.
+          </p>
+          <div class="links">
+            📱
+            <a
+              href="https://play.google.com/store/apps/details?id=com.onfleekq_vendor&pcampaignid=web_share"
+              >Google Play</a
+            >
+            🍏
+            <a href="https://apps.apple.com/ng/app/onfleekq-pro/id6741349473"
+              >App Store</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Netapps -->
+      <div class="project">
+        <img src="assets/netapps-logo.png" alt="Netapps Marketplace Logo" />
+        <div class="project-content">
+          <h3>Netapps Marketplace</h3>
+          <p>
+            A FinTech app for seamless digital bill payments and financial
+            solutions, designed for speed, reliability, and a secure user
+            experience.
+          </p>
+          <div class="links">
+            📱
+            <a
+              href="https://play.google.com/store/apps/details?id=ng.netapps.marketplace"
+              >Google Play</a
+            >
+            🍏
+            <a
+              href="https://apps.apple.com/us/developer/netapps-marketplace/id1669035119"
+              >App Store</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Gookway -->
+      <div class="project">
+        <img src="assets/gookway-logo.png" alt="Gookway Logo" />
+        <div class="project-content">
+          <h3>Gookway</h3>
+          <p>
+            A modern e-commerce platform enabling users to explore, purchase,
+            and manage orders easily through an elegant and intuitive interface.
+          </p>
+          <div class="links">
+            📱
+            <a
+              href="https://play.google.com/store/apps/details?id=com.gookway.app&hl=en"
+              >Google Play</a
+            >
+            🍏
+            <a
+              href="https://apps.apple.com/us/app/gookway-online-shopping-mall/id6737542762"
+              >App Store</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Synergyy -->
+      <div class="project">
+        <img src="assets/synergyy-logo.png" alt="Synergyy Logo" />
+        <div class="project-content">
+          <h3>Synergyy</h3>
+          <p>
+            A digital hiring solution connecting companies with qualified
+            professionals to streamline recruitment and build strong teams.
+          </p>
+          <div class="links">
+            📱
+            <a
+              href="https://play.google.com/store/apps/details?id=com.synergyy.synergyyFounder&hl=en"
+              >Google Play</a
+            >
+            🍏
+            <a href="https://apps.apple.com/us/app/synergyy/id6741899148"
+              >App Store</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills -->
+      <section>
+        <h2>Core Skills</h2>
+        <p>
+          <strong>Mobile Development:</strong> Kotlin, Swift, React Native,
+          Flutter <br />
+          <strong>Backend & APIs:</strong> Spring Boot, Node.js, Firebase,
+          RESTful APIs <br />
+          <strong>Tools & Process:</strong> Git, CI/CD, Agile, UI/UX
+          Collaboration <br />
+          <strong>Specialties:</strong> FinTech, BeautyTech, E-Commerce, EdTech
+        </p>
+      </section>
+
+      <!-- Contact -->
+      <section>
+        <h2>Contact</h2>
+        <p>
+          📧 <strong>Email:</strong>
+          <a href="mailto:hellorichard.uzor@gmail.com"
+            >hellorichard.uzor@gmail.com</a
+          ><br />
+          📞 <strong>Phone:</strong> +234 813 266 5650<br />
+          🌐 <strong>GitHub:</strong>
+          <a href="https://github.com/EQua-Dev" target="_blank"
+            >github.com/EQua-Dev</a
+          ><br />
+          💼 <strong>LinkedIn:</strong>
+          <a href="https://linkedin.com/in/richard-uzor" target="_blank"
+            >linkedin.com/in/richard-uzor</a
+          >
+        </p>
+      </section>
+    </div>
+
+    <footer>
+      <p>© 2025 Richard Uzor | Mobile App Developer</p>
+    </footer>
+  </body>
+</html>
