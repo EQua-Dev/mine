@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Richard Uzor — Senior Mobile Engineer</title>
+<meta name="description" content="Senior mobile engineer building production apps and SDKs across Android, iOS, Flutter, React Native and .NET MAUI. 12+ apps shipped to Google Play and the App Store." />
+<meta property="og:title" content="Richard Uzor — Senior Mobile Engineer" />
+<meta property="og:description" content="Android · iOS · Flutter · React Native · .NET MAUI. Production apps and the SDKs other teams integrate." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --ink:#14171A;
+  --ink-2:#3E464D;
+  --ink-3:#727C85;
+  --paper:#E9EBE7;
+  --panel:#FDFDFC;
+  --line:#CDD2CC;
+  --line-2:#DFE3DD;
+  --signal:#1E36C8;
+  --landmark:#A8E10B;
+  --radius:4px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Inter",system-ui,sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(var(--line-2) 1px,transparent 1px),linear-gradient(90deg,var(--line-2) 1px,transparent 1px);
+  background-size:56px 56px;opacity:.5;
+}
+.wrap{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:0 24px}
+a{color:var(--signal);text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+
+.eyebrow{
+  font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);
+}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:sticky;top:0;z-index:20;background:rgba(233,235,231,.92);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+}
+.nav-in{max-width:1080px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav-name{font-family:"Archivo";font-weight:700;font-size:15px;letter-spacing:-.01em}
+.nav-links{display:flex;gap:20px;flex-wrap:wrap}
+.nav-links a{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--ink-2);letter-spacing:.04em}
+.nav-links a:hover{color:var(--signal)}
+
+/* ---------- HERO ---------- */
+.hero{padding:72px 0 40px;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.hero h1{
+  font-family:"Archivo";font-weight:800;font-size:clamp(2.6rem,6.4vw,4.4rem);
+  line-height:.94;letter-spacing:-.035em;margin:14px 0 0;
+}
+.hero .role{
+  font-family:"Archivo";font-weight:600;font-size:clamp(1rem,2.2vw,1.3rem);
+  color:var(--ink-2);margin:16px 0 0;letter-spacing:-.01em;
+}
+.hero .lede{max-width:46ch;color:var(--ink-2);margin:18px 0 0;font-size:15.5px}
+.avail{
+  display:inline-flex;align-items:center;gap:8px;margin-top:22px;padding:7px 12px;
+  border:1px solid var(--line);background:var(--panel);border-radius:100px;
+  font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--ink-2);letter-spacing:.03em;
+}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--landmark);box-shadow:0 0 0 3px rgba(168,225,11,.28)}
+.cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.btn{
+  display:inline-block;padding:11px 18px;border-radius:var(--radius);
+  font-family:"JetBrains Mono",monospace;font-size:12.5px;letter-spacing:.03em;
+  border:1px solid var(--ink);transition:transform .15s ease,background .15s ease,color .15s ease;
+}
+.btn-solid{background:var(--ink);color:var(--paper)}
+.btn-solid:hover{background:var(--signal);border-color:var(--signal);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper);transform:translateY(-1px)}
+
+/* ---------- SIGNATURE ---------- */
+.figure{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+.figure svg{display:block;width:100%;height:auto}
+.figure-cap{
+  font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--ink-3);
+  letter-spacing:.08em;text-transform:uppercase;margin-top:10px;display:flex;justify-content:space-between;gap:10px
+}
+.bone{stroke:var(--signal);stroke-width:2;stroke-linecap:round;fill:none;
+  stroke-dasharray:var(--len,120);stroke-dashoffset:var(--len,120);
+  animation:draw .9s cubic-bezier(.4,0,.2,1) forwards;}
+.node{fill:var(--landmark);stroke:var(--ink);stroke-width:1.1;opacity:0;
+  animation:pop .45s cubic-bezier(.34,1.56,.64,1) forwards;}
+.scan{stroke:var(--landmark);stroke-width:1.5;opacity:.85;animation:scan 4.5s ease-in-out infinite}
+.tick{stroke:var(--line);stroke-width:1}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{to{opacity:1}}
+@keyframes scan{0%,100%{transform:translateY(6px)}50%{transform:translateY(228px)}}
+@media (prefers-reduced-motion:reduce){
+  .bone{animation:none;stroke-dashoffset:0}
+  .node{animation:none;opacity:1}
+  .scan{animation:none;opacity:.3}
+}
+
+/* ---------- SPEC STRIP ---------- */
+.spec{
+  display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);
+  background:var(--panel);border-radius:var(--radius);margin:8px 0 0;overflow:hidden;
+}
+.spec div{padding:18px 16px;border-right:1px solid var(--line-2)}
+.spec div:last-child{border-right:0}
+.spec b{display:block;font-family:"Archivo";font-weight:800;font-size:1.9rem;letter-spacing:-.03em;line-height:1}
+.spec span{display:block;font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--ink-3);letter-spacing:.09em;text-transform:uppercase;margin-top:7px}
+
+/* ---------- SECTIONS ---------- */
+section{padding:64px 0 8px}
+.sec-head{display:flex;align-items:baseline;gap:16px;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:28px}
+.sec-head h2{font-family:"Archivo";font-weight:700;font-size:1.55rem;letter-spacing:-.02em;margin:0}
+.sec-head .eyebrow{margin-left:auto}
+
+/* ---------- CASE STUDIES ---------- */
+.case{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:28px;margin-bottom:20px}
+.case-top{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;margin-bottom:6px}
+.case h3{font-family:"Archivo";font-weight:700;font-size:1.25rem;margin:0;letter-spacing:-.02em}
+.case .where{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--ink-3);letter-spacing:.03em}
+.case .sum{color:var(--ink-2);margin:10px 0 18px;max-width:74ch;font-size:15px}
+.case ul{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:9px}
+.case li{position:relative;padding-left:20px;font-size:14.5px;color:var(--ink-2)}
+.case li::before{
+  content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;
+  background:var(--landmark);border:1px solid var(--ink);
+}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{
+  font-family:"JetBrains Mono",monospace;font-size:11px;padding:4px 9px;
+  border:1px solid var(--line);border-radius:100px;color:var(--ink-2);background:var(--paper);
+}
+
+/* ---------- PROJECT GRID ---------- */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px;display:flex;flex-direction:column;transition:border-color .2s ease,transform .2s ease;
+}
+.card:hover{border-color:var(--ink);transform:translateY(-2px)}
+.card-top{display:flex;gap:14px;align-items:center;margin-bottom:14px}
+.card-top img{width:46px;height:46px;border-radius:10px;object-fit:cover;border:1px solid var(--line)}
+.card-top h3{font-family:"Archivo";font-weight:700;font-size:1.06rem;margin:0;letter-spacing:-.01em}
+.card-top .meta{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--ink-3);letter-spacing:.05em;text-transform:uppercase;margin-top:3px}
+.card p{font-size:14.3px;color:var(--ink-2);margin:0 0 14px}
+.hard{border-left:2px solid var(--landmark);padding:2px 0 2px 12px;margin:0 0 14px}
+.hard span{display:block;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:3px}
+.hard p{margin:0;font-size:14px}
+.shot{
+  border:1px dashed var(--line);border-radius:var(--radius);background:var(--paper);
+  aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;margin-bottom:14px;
+  font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--ink-3);letter-spacing:.06em;text-align:center;padding:10px
+}
+.shot img{width:100%;height:100%;object-fit:cover;border-radius:var(--radius)}
+.card .chips{margin-bottom:14px}
+.store{display:flex;gap:8px;margin-top:auto;padding-top:4px}
+.store a{
+  flex:1;text-align:center;padding:9px 8px;border:1px solid var(--line);border-radius:var(--radius);
+  font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--ink);transition:background .15s ease,color .15s ease
+}
+.store a:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* ---------- CAPABILITIES ---------- */
+.cap{border:1px solid var(--line);background:var(--panel);border-radius:var(--radius);overflow:hidden;margin:0}
+.cap-row{display:grid;grid-template-columns:210px 1fr;border-bottom:1px solid var(--line-2)}
+.cap-row:last-child{border-bottom:0}
+.cap-row dt{
+  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-3);padding:16px 18px;border-right:1px solid var(--line-2);margin:0
+}
+.cap-row dd{margin:0;padding:16px 18px;font-size:14.4px;color:var(--ink-2)}
+
+/* ---------- CONTACT ---------- */
+.contact{background:var(--ink);color:var(--paper);border-radius:var(--radius);padding:40px;margin-top:16px}
+.contact h2{font-family:"Archivo";font-weight:800;font-size:clamp(1.6rem,4vw,2.4rem);margin:8px 0 12px;letter-spacing:-.03em;line-height:1.05}
+.contact .eyebrow{color:#8C96A0}
+.contact p{color:#B9C0C7;max-width:52ch;margin:0 0 24px;font-size:15px}
+.contact .cta-row .btn{border-color:var(--paper);color:var(--paper)}
+.contact .cta-row .btn-solid{background:var(--paper);color:var(--ink)}
+.contact .cta-row .btn-solid:hover{background:var(--landmark);border-color:var(--landmark);color:var(--ink)}
+.contact .cta-row .btn-ghost:hover{background:var(--paper);color:var(--ink)}
+.reach{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:26px;padding-top:22px;border-top:1px solid #2C3238}
+.reach a,.reach span{font-family:"JetBrains Mono",monospace;font-size:12px;color:#B9C0C7;letter-spacing:.02em}
+.reach a:hover{color:var(--landmark)}
+
+footer{padding:28px 0 44px;text-align:center}
+footer p{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--ink-3);letter-spacing:.06em;margin:0}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;gap:28px;padding:48px 0 32px}
+  .figure{order:-1}
+  .grid{grid-template-columns:1fr}
+  .spec{grid-template-columns:repeat(2,1fr)}
+  .spec div:nth-child(2){border-right:0}
+  .spec div:nth-child(1),.spec div:nth-child(2){border-bottom:1px solid var(--line-2)}
+}
+@media (max-width:620px){
+  .wrap{padding:0 18px}
+  .nav-links{display:none}
+  .cap-row{grid-template-columns:1fr}
+  .cap-row dt{border-right:0;padding-bottom:0}
+  .case,.contact{padding:22px}
+  .sec-head .eyebrow{display:none}
+  section{padding:48px 0 8px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <span class="nav-name">Richard&nbsp;Uzor</span>
+    <div class="nav-links">
+      <a href="#work">Deep work</a>
+      <a href="#shipped">Shipped</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Abuja, Nigeria · Remote worldwide</p>
+      <h1>Richard<br />Uzor</h1>
+      <p class="role">Senior Mobile Engineer</p>
+      <p class="lede">
+        I build production mobile apps — and the SDKs other engineering teams
+        integrate into theirs. Twelve-plus products live on Google Play and the
+        App Store across Android, iOS, Flutter, React Native and .NET MAUI.
+      </p>
+      <span class="avail"><i class="dot"></i> Open to full-time roles</span>
+      <div class="cta-row">
+        <a class="btn btn-solid" href="#work">See the work</a>
+        <!-- TODO: add Richard-Uzor-CV.pdf to the repo root -->
+        <a class="btn btn-ghost" href="Richard-Uzor-CV.pdf">Download CV</a>
+      </div>
+    </div>
+
+    <!-- SIGNATURE: pose-detection overlay, drawn from the SDK work -->
+    <div class="figure">
+      <svg viewBox="0 0 260 250" role="img" aria-label="Pose-detection skeleton with landmark nodes">
+        <g class="tick">
+          <line x1="12" y1="10" x2="12" y2="240" />
+          <line x1="8" y1="10" x2="16" y2="10" /><line x1="8" y1="79" x2="16" y2="79" />
+          <line x1="8" y1="148" x2="16" y2="148" /><line x1="8" y1="240" x2="16" y2="240" />
+        </g>
+        <line class="scan" x1="24" y1="8" x2="250" y2="8" />
+        <g>
+          <path class="bone" style="--len:44;animation-delay:.15s" d="M130 62 L130 106" />
+          <path class="bone" style="--len:62;animation-delay:.3s"  d="M99 88 L161 88" />
+          <path class="bone" style="--len:52;animation-delay:.45s" d="M99 88 L84 134" />
+          <path class="bone" style="--len:52;animation-delay:.45s" d="M161 88 L176 134" />
+          <path class="bone" style="--len:46;animation-delay:.6s"  d="M84 134 L96 176" />
+          <path class="bone" style="--len:46;animation-delay:.6s"  d="M176 134 L164 176" />
+          <path class="bone" style="--len:48;animation-delay:.75s" d="M108 130 L152 130" />
+          <path class="bone" style="--len:38;animation-delay:.75s" d="M130 106 L130 130" />
+          <path class="bone" style="--len:58;animation-delay:.9s"  d="M108 130 L104 186" />
+          <path class="bone" style="--len:58;animation-delay:.9s"  d="M152 130 L156 186" />
+          <path class="bone" style="--len:44;animation-delay:1.05s" d="M104 186 L100 228" />
+          <path class="bone" style="--len:44;animation-delay:1.05s" d="M156 186 L160 228" />
+        </g>
+        <g>
+          <circle class="node" style="animation-delay:.05s" cx="130" cy="50" r="11" />
+          <circle class="node" style="animation-delay:.25s" cx="99"  cy="88"  r="4.6" />
+          <circle class="node" style="animation-delay:.25s" cx="161" cy="88"  r="4.6" />
+          <circle class="node" style="animation-delay:.4s"  cx="84"  cy="134" r="4.2" />
+          <circle class="node" style="animation-delay:.4s"  cx="176" cy="134" r="4.2" />
+          <circle class="node" style="animation-delay:.55s" cx="96"  cy="176" r="4.2" />
+          <circle class="node" style="animation-delay:.55s" cx="164" cy="176" r="4.2" />
+          <circle class="node" style="animation-delay:.7s"  cx="108" cy="130" r="4.6" />
+          <circle class="node" style="animation-delay:.7s"  cx="152" cy="130" r="4.6" />
+          <circle class="node" style="animation-delay:.85s" cx="104" cy="186" r="4.2" />
+          <circle class="node" style="animation-delay:.85s" cx="156" cy="186" r="4.2" />
+          <circle class="node" style="animation-delay:1s"   cx="100" cy="228" r="4.2" />
+          <circle class="node" style="animation-delay:1s"   cx="160" cy="228" r="4.2" />
+        </g>
+      </svg>
+      <div class="figure-cap"><span>33 landmarks · on-device</span><span>MediaPipe / ML&nbsp;Kit</span></div>
+    </div>
+  </header>
+
+  <div class="spec">
+    <div><b>5+</b><span>Years shipping</span></div>
+    <div><b>12+</b><span>Apps in stores</span></div>
+    <div><b>5</b><span>Mobile platforms</span></div>
+    <div><b>3</b><span>Countries worked</span></div>
+  </div>
+
+  <section id="work">
+    <div class="sec-head">
+      <h2>Deep work</h2>
+      <span class="eyebrow">Platform &amp; SDK engineering</span>
+    </div>
+
+    <article class="case">
+      <div class="case-top">
+        <h3>Real-time pose detection SDK</h3>
+        <span class="where">ApataTech · client: Blatchford Solutions, UK · 2025–present</span>
+      </div>
+      <p class="sum">
+        A computer-vision SDK for a prosthetics and orthotics manufacturer: clinicians
+        record a patient moving, and the app overlays a live skeletal model, measures
+        joint angles, and stores video with faces redacted.
+      </p>
+      <ul>
+        <li>Unified .NET MAUI Android SDK abstracting two ML backends — MediaPipe and ML Kit — behind one public API, switchable by configuration with no consumer code changes.</li>
+        <li>C# binding libraries wrapping native Android AARs for both engines, including dependency-conflict resolution across parallel NuGet and Gradle chains.</li>
+        <li>Dual-track recorder writing raw camera and composited overlay video simultaneously via MediaCodec and MediaMuxer, with a HandlerThread encoder queue that keeps the UI thread free.</li>
+        <li>Live face blur on preview using a dedicated SurfaceView with pre-allocated bitmap pooling, plus post-recording redaction through Media3 Transformer on the raw stream.</li>
+        <li>Builder-pattern configuration API spanning 40+ feature flags, propagated through the MAUI bindable-property layer down to the native views.</li>
+      </ul>
+      <div class="chips">
+        <span class="chip">.NET MAUI</span><span class="chip">C#</span><span class="chip">Kotlin</span>
+        <span class="chip">MediaPipe</span><span class="chip">ML Kit</span><span class="chip">Xamarin bindings</span>
+        <span class="chip">MediaCodec</span><span class="chip">Media3</span><span class="chip">CameraX</span>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="case-top">
+        <h3>Cross-platform SDK suite</h3>
+        <span class="where">Caluu Ltd · London, UK · 2025–2026</span>
+      </div>
+      <p class="sum">
+        SDKs consumed by partner engineering teams, each shipped so the same
+        capability behaves identically no matter which mobile stack a partner had
+        already committed to.
+      </p>
+      <ul>
+        <li>Address-verification SDK delivered three ways from one specification — native iOS in Swift and MapKit, a React Native TurboModule, and a Flutter plugin.</li>
+        <li>Core SDK capabilities including foreground services, server-driven UI rendering and dynamic form submission, all theme-aware and configurable by the integrator.</li>
+        <li>KYC and identity verification covering document capture and liveness checks.</li>
+        <li>Payments abstraction placing Stripe, PayPal and Paystack behind a single interface.</li>
+        <li>Demo apps, versioned releases and integration documentation, plus hands-on onboarding for teams adopting the SDKs.</li>
+      </ul>
+      <div class="chips">
+        <span class="chip">Swift</span><span class="chip">MapKit</span><span class="chip">React Native</span>
+        <span class="chip">TurboModules</span><span class="chip">Flutter</span><span class="chip">Kotlin</span>
+        <span class="chip">Server-driven UI</span><span class="chip">KYC</span><span class="chip">Payments</span>
+      </div>
+    </article>
+  </section>
+
+  <section id="shipped">
+    <div class="sec-head">
+      <h2>Shipped products</h2>
+      <span class="eyebrow">Live on both stores</span>
+    </div>
+
+    <div class="grid">
+
+      <article class="card">
+        <div class="card-top">
+          <img src="assets/partnerd-logo.png" alt="" />
+          <div><h3>Partnerd</h3><div class="meta">Lead mobile · Flutter</div></div>
+        </div>
+        <!-- Replace with: <div class="shot"><img src="assets/shots/partnerd.png" alt="Partnerd screens" /></div> -->
+        <div class="shot">add screenshot → assets/shots/partnerd.png</div>
+        <p>A partnership platform connecting founders and projects with investors, professionals and creatives across Africa.</p>
+        <div class="hard">
+          <span>The hard part</span>
+          <p>Real-time messaging over Socket.io alongside in-app payments, kept responsive on low-bandwidth connections.</p>
+        </div>
+        <div class="chips"><span class="chip">Flutter</span><span class="chip">BLoC</span><span class="chip">Socket.io</span><span class="chip">Paystack</span></div>
+        <div class="store">
+          <a href="https://play.google.com/store/apps/details?id=com.getpartnerd.app" target="_blank" rel="noopener">Google Play</a>
+          <a href="https://apps.apple.com/ng/app/partnerd/id6741252979" target="_blank" rel="noopener">App Store</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <img src="assets/onfleekq-logo.png" alt="" />
+          <div><h3>onfleekQ Pro</h3><div class="meta">Lead mobile · React Native</div></div>
+        </div>
+        <div class="shot">add screenshot → assets/shots/onfleekq.png</div>
+        <p>An on-demand beauty marketplace with real-time service booking, vendor management and product purchase.</p>
+        <div class="hard">
+          <span>The hard part</span>
+          <p>Custom native modules bridging platform capabilities React Native does not expose, plus live chat via Zoho SDKs.</p>
+        </div>
+        <div class="chips"><span class="chip">React Native</span><span class="chip">Native modules</span><span class="chip">TypeScript</span><span class="chip">Zoho SDK</span></div>
+        <div class="store">
+          <a href="https://play.google.com/store/apps/details?id=com.onfleekq_vendor" target="_blank" rel="noopener">Google Play</a>
+          <a href="https://apps.apple.com/ng/app/onfleekq-pro/id6741349473" target="_blank" rel="noopener">App Store</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <img src="assets/netapps-logo.png" alt="" />
+          <div><h3>Netapps Marketplace</h3><div class="meta">Mobile developer · React Native</div></div>
+        </div>
+        <div class="shot">add screenshot → assets/shots/netapps.png</div>
+        <p>A fintech app for digital bill payments and financial services, built for speed and transaction reliability.</p>
+        <div class="hard">
+          <span>The hard part</span>
+          <p>Hardware integration: Bluetooth LE thermal receipt printers, NFC debit-card reading and on-device face recognition.</p>
+        </div>
+        <div class="chips"><span class="chip">React Native</span><span class="chip">Bluetooth LE</span><span class="chip">NFC</span><span class="chip">Face recognition</span></div>
+        <div class="store">
+          <a href="https://play.google.com/store/apps/details?id=ng.netapps.marketplace" target="_blank" rel="noopener">Google Play</a>
+          <a href="https://apps.apple.com/us/developer/netapps-marketplace/id1669035119" target="_blank" rel="noopener">App Store</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <img src="assets/synergyy-logo.png" alt="" />
+          <div><h3>Synergyy</h3><div class="meta">Senior mobile · Flutter</div></div>
+        </div>
+        <div class="shot">add screenshot → assets/shots/synergyy.png</div>
+        <p>A hiring platform connecting companies with qualified professionals, from job posting through to candidate messaging.</p>
+        <div class="hard">
+          <span>The hard part</span>
+          <p>Crowdfunding and real-time messaging modules architected with BLoC and Cubit to keep a growing feature set maintainable.</p>
+        </div>
+        <div class="chips"><span class="chip">Flutter</span><span class="chip">BLoC</span><span class="chip">Cubit</span><span class="chip">In-app purchase</span></div>
+        <div class="store">
+          <a href="https://play.google.com/store/apps/details?id=com.synergyy.synergyyFounder" target="_blank" rel="noopener">Google Play</a>
+          <a href="https://apps.apple.com/us/app/synergyy/id6741899148" target="_blank" rel="noopener">App Store</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <img src="assets/tailors-log-logo.png" alt="" />
+          <div><h3>Tailors Log</h3><div class="meta">Devstrike build · Flutter</div></div>
+        </div>
+        <div class="shot">add screenshot → assets/shots/tailors-log.png</div>
+        <p>ERP-style business management for tailoring and fashion businesses — orders, measurements, clients and billing.</p>
+        <div class="hard">
+          <span>The hard part</span>
+          <p>Recurring subscription billing across both stores, with entitlement state that survives reinstalls and device changes.</p>
+        </div>
+        <div class="chips"><span class="chip">Flutter</span><span class="chip">BLoC</span><span class="chip">Subscriptions</span><span class="chip">REST</span></div>
+        <div class="store">
+          <a href="https://play.google.com/store/apps/details?id=com.manlago.tailorslog" target="_blank" rel="noopener">Google Play</a>
+          <a href="https://apps.apple.com/ng/app/tailors-log/id6752531412" target="_blank" rel="noopener">App Store</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <img src="assets/gookway-logo.png" alt="" />
+          <div><h3>Gookway</h3><div class="meta">Devstrike build · Flutter</div></div>
+        </div>
+        <div class="shot">add screenshot → assets/shots/gookway.png</div>
+        <p>An e-commerce platform for browsing a catalogue, checking out and managing orders end to end.</p>
+        <div class="hard">
+          <span>The hard part</span>
+          <p>Checkout and order state kept consistent between app and backend across payment callbacks and interrupted sessions.</p>
+        </div>
+        <div class="chips"><span class="chip">Flutter</span><span class="chip">Paystack</span><span class="chip">REST</span><span class="chip">E-commerce</span></div>
+        <div class="store">
+          <a href="https://play.google.com/store/apps/details?id=com.gookway.app" target="_blank" rel="noopener">Google Play</a>
+          <a href="https://apps.apple.com/us/app/gookway-online-shopping-mall/id6737542762" target="_blank" rel="noopener">App Store</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="capabilities">
+    <div class="sec-head">
+      <h2>Capabilities</h2>
+      <span class="eyebrow">What I work in</span>
+    </div>
+    <dl class="cap">
+      <div class="cap-row"><dt>Native mobile</dt><dd>Kotlin, Java, Swift, SwiftUI, Jetpack Compose, Android SDK, Xcode, CameraX, Media3, MediaCodec, MapKit, foreground services</dd></div>
+      <div class="cap-row"><dt>Cross-platform</dt><dd>Flutter (Dart), React Native (TypeScript), .NET MAUI (C#), Xamarin binding libraries</dd></div>
+      <div class="cap-row"><dt>SDKs &amp; native modules</dt><dd>Cross-platform SDK design, native AAR wrapping, iOS framework packaging, React Native TurboModules, Flutter plugins, versioning and developer documentation</dd></div>
+      <div class="cap-row"><dt>Computer vision &amp; ML</dt><dd>Google MediaPipe, Google ML Kit, real-time pose detection, on-device video processing, face redaction</dd></div>
+      <div class="cap-row"><dt>Architecture</dt><dd>MVVM, Clean Architecture, BLoC and Cubit, Coroutines and Flow, dependency injection, modularisation, server-driven UI, offline-first sync</dd></div>
+      <div class="cap-row"><dt>Integrations</dt><dd>REST, GraphQL, WebSockets, Firebase, push notifications, deep linking, Stripe · PayPal · Paystack, KYC and biometric verification, Bluetooth LE, NFC</dd></div>
+      <div class="cap-row"><dt>Backend &amp; web</dt><dd>Node.js, Java Spring Boot, React.js, Vite</dd></div>
+      <div class="cap-row"><dt>Delivery</dt><dd>Git, CI/CD, unit and instrumentation testing, code review, Play Store and App Store release management, Agile, mentoring</dd></div>
+      <div class="cap-row"><dt>Domains</dt><dd>Fintech, health and medical devices, e-commerce, marketplaces, logistics, recruitment</dd></div>
+    </dl>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <p class="eyebrow">Currently open</p>
+      <h2>Looking for a team<br />building something hard.</h2>
+      <p>Full-time roles, remote or relocation. If you are shipping a mobile product — or an SDK that other teams depend on — I would like to hear about it.</p>
+      <div class="cta-row">
+        <a class="btn btn-solid" href="mailto:hellorichard.uzor@gmail.com">Email me</a>
+        <a class="btn btn-ghost" href="Richard-Uzor-CV.pdf">Download CV</a>
+      </div>
+      <div class="reach">
+        <a href="mailto:hellorichard.uzor@gmail.com">hellorichard.uzor@gmail.com</a>
+        <!-- TODO: confirm which LinkedIn slug is live before publishing -->
+        <a href="https://www.linkedin.com/in/richarduzor" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/EQua-Dev" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://wa.me/2348132665650" target="_blank" rel="noopener">WhatsApp</a>
+        <span>Abuja, Nigeria · GMT+1</span>
+      </div>
+    </div>
+  </section>
+
+  <footer><p>© 2026 Richard Uzor</p></footer>
+</div>
+</body>
+</html>
